@@ -1,0 +1,31 @@
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <form [formGroup]="slotFormGroup" (ngSubmit)="addSlot(slotFormGroup)">
+      <h2 mat-dialog-title>Add New Slot</h2>
+      <mat-dialog-content class="mat-typography">
+        <mat-form-field class="example-full-width">
+          <mat-label>From Time</mat-label>
+          <input matTimepicker formControlName="from_time"  [minDate]="minDate" [maxDate]="maxDate">
+        </mat-form-field>
+        <div *ngIf="slotFormGroup.get('from_time').touched && slotFormGroup.get('from_time').errors">
+          <small class="text-danger" *ngIf="slotFormGroup.get('from_time').errors">From Time is Required(*).</small>
+        </div>
+        <br/>
+        <mat-form-field class="example-full-width">
+          <mat-label>To Time</mat-label>
+          <input matTimepicker formControlName="to_time" [minDate]="minDate" [maxDate]="maxDate">
+        </mat-form-field>
+        <div *ngIf="slotFormGroup.get('to_time').touched && slotFormGroup.get('to_time').errors">
+          <small class="text-danger" *ngIf="slotFormGroup.get('to_time').errors">To Time is Required(*).</small>
+        </div>
+      </mat-dialog-content>
+      <small class="text-danger" *ngIf="customErrorMessage">{{customErrorMessage}}</small>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Close</button>
+        <button mat-button class="slot-save-btn" type="submit" cdkFocusInitial>Save</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>
+

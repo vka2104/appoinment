@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 p-0 home-screen">
+      <mat-card>
+        <div class="row header-row">
+          <div class="col-md-1 pt-3">
+            <img class="header-logo" src="assets/images/favicon.png">
+          </div>
+          <div class="col-md-3 pt-3">
+            <div class="row">
+              <div class="col-md-2 pr-0">
+                <img src="https://media.istockphoto.com/photos/portrait-of-smiling-handsome-man-in-blue-tshirt-standing-with-crossed-picture-id1045886560?k=6&m=1045886560&s=612x612&w=0&h=hXrxai1QKrfdqWdORI4TZ-M0ceCVakt4o6532vHaS3I=" class="doctor-profile-image">
+              </div>
+              <div class="col-md-8">
+                <h3>vasanthakumar</h3>
+                <small>General</small>
+              </div>
+              <div class="col-md-1  p-0 user-profile-expander">
+                <mat-icon>expand_more</mat-icon>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 pt-3 booking-date-filter">
+            <mat-form-field appearance="fill">
+              <mat-label>Filter with Date</mat-label>
+              <input matInput [value]="dateValue" (dateChange)="filterAppointmets($event, false)" [matDatepicker]="picker" disabled>
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 pt-4 text-right">
+            <div class="row">
+              <div class="col-md-3 offset-md-5">
+                <button routerLink="/slots" mat-raised-button color="primary">Slots</button>
+              </div>
+              <div class="col-md-3">
+                <button mat-raised-button color="primary">Walk-In</button>
+              </div>
+              <div class="col-md-1">
+                <button mat-mini-fab color="primary"><mat-icon>settings</mat-icon></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-2">
+      <mat-card class="appointment-today-count">
+        <div class="text-center">
+          <h3>Today's Appointment</h3>
+          <h1>{{todayCount}}</h1>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="appointment-total-count">
+        <div class="text-center">
+          <h3>Total Appointment</h3>
+          <h1>20</h1>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-8"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <mat-card>
+        <button class="show-all-btn" (click)="getAppointment()" mat-raised-button>Show All Appointments</button>
+      <table class="table border-none">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Patient</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Appointment Time</th>
+            <th scope="col">Appointment End Time</th>
+          </tr>
+        </thead>
+        <tbody cdkDropList (cdkDropListDropped)="dropTable($event)">
+          <tr *ngFor="let data of appointmentList; let i = index" cdkDrag cdkDragLockAxis="y">
+            <th class="col-xs">
+              <div class="drag-handle">
+                <ng-container [ngTemplateOutlet]="dragHandleTmpl">
+                </ng-container>
+                <mat-icon class="drag-icon">drag_indicator</mat-icon>
+                <span class="appointment-index">{{ i+1 }}</span>
+              </div>
+            </th>
+            <td class="col-md">
+              {{ data.user_name }}</td>
+            <td class="col-md">
+              {{ data.phonenumber }}
+            </td>
+            <td class="col-md">
+              {{ data.from_time }}
+            </td>
+            <td class="col-md">
+              {{ data.to_time }}
+            </td>
+          </tr>
+          <tr *ngIf="appointmentList.length == 0">
+            <td class="text-center" colspan="5">No Result Found.</td>
+          </tr>
+        </tbody>
+      </table>
+      </mat-card>
+    </div>
+  </div>
+</div>

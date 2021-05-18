@@ -1,0 +1,18 @@
+.slot-list .mat-icon {
+  vertical-align: middle;
+}
+.slot-list a {
+  color: #336ee0;
+  cursor: pointer;
+}
+.slot-list .slot-item {
+  border: solid 1px #336ee0;
+  color: #75767a;
+  background-color: #fff;
+  box-shadow: 0 10px 6px -6px #e4dfdf;
+}
+.slot-list .slot-item-booked {
+  background: #336ee0;
+  color: #fff;
+  box-shadow: 0 10px 6px -6px #336ee061;
+}

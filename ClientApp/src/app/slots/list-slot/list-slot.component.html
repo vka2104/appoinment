@@ -1,0 +1,68 @@
+<div class="container-fluid slot-list">
+  <div class="row">
+    <div class="col-md-12 pr-0">
+      <nav aria-label="breadcrumb">
+        <span>Slots |</span>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Slots</a></li>
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <mat-card>
+        <mat-calendar [(selected)]="filaterCalenderDefaultDate" (selectedChange)="filterSlotsByDate($event, false)"></mat-calendar>
+      </mat-card>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <mat-card class="example-card">
+        <div class="row">
+          <div class="col">
+            <h2><mat-icon color="warn">wb_sunny</mat-icon> Morning</h2>
+          </div>
+          <div class="col-auto">
+            <a *ngIf="isEnableAddSlot" (click)="openDialog('morning')"><mat-icon class="">add</mat-icon>add slot</a>
+          </div>
+        </div>
+        <mat-card-subtitle>09:00AM to 12:00PM</mat-card-subtitle>
+        <mat-card-content>
+          <div class="row">
+            <div *ngFor="let data of morningSlotList" class="col-md-2 mb-3">
+              <button mat-raised-button color="primary" [class.slot-item-booked]="data.is_booked" class="slot-item">
+                <mat-icon *ngIf="!data.is_booked">radio_button_unchecked</mat-icon>
+                <mat-icon *ngIf="data.is_booked">east</mat-icon>
+                {{data.from_time}}
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="example-card">
+        <div class="row">
+          <div class="col">
+            <h2><mat-icon>nightlight</mat-icon>Evening</h2>
+          </div>
+          <div class="col-auto">
+            <a *ngIf="isEnableAddSlot" (click)="openDialog('evening')"><mat-icon class="">add</mat-icon>add slot</a>
+          </div>
+        </div>
+          <mat-card-subtitle>05:00PM to 09:00PM</mat-card-subtitle>
+        <mat-card-content>
+          <div class="row">
+            <div *ngFor="let data of eveningSlotList" class="col-md-2 mb-3">
+              <button mat-raised-button color="primary" [class.slot-item-booked]="data.is_booked" class="slot-item">
+                <mat-icon *ngIf="!data.is_booked">radio_button_unchecked</mat-icon>
+                <mat-icon *ngIf="data.is_booked">east</mat-icon>
+                {{data.from_time}}
+              </button>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

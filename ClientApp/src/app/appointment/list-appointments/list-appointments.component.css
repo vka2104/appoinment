@@ -1,0 +1,95 @@
+.header-logo {
+  height: 50px;
+  width: 50px;
+}
+.home-screen>.mat-card {
+  box-shadow: 0 10px 6px -6px #e4dfdf;
+  border-radius: 0;
+  background: #ffffff;
+  padding: 0px 16px;
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: #fff;
+}
+.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  color: #336ee0;
+}
+.mat-raised-button {
+  padding: 0 35px;
+  box-shadow: 0 7px 30px -10px #96aab480;
+  border-radius: 20px;
+}
+.doctor-profile-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+h3 {
+  margin: 0 0 5px;
+}
+.user-profile-expander{
+  border-right: solid 1px #bfbdbd;
+}
+
+.drag-handle {
+  display: flex;
+  align-items: center;
+  cursor: move;
+}
+.handle {
+  margin-right: 5px;
+}
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  padding: 4px;
+}
+.cdk-drag-placeholder	{
+  opacity: 0;
+}
+
+ .col-xs {
+  width: 2%;
+}
+
+ .col-sm {
+  width: 10%;
+}
+
+ .col-md {
+  width: 20%;
+}
+.table>:not(caption)>*>* {
+  padding: 1.5rem 1.5rem;
+}
+.drag-icon {
+  color: #336ee0;
+  padding-right: 3px;
+}
+.appointment-index {
+  background: #f1be7c6b;
+  border-radius: 16%;
+  padding: 1px 10px;
+  color: #f39345;
+}
+.show-all-btn {
+  color: #336ee0;
+  float: right;
+}
+.appointment-total-count {
+  color: #336ee0;
+}
+.appointment-today-count {
+background-color: #336ee0;
+color: #fff;
+}
+

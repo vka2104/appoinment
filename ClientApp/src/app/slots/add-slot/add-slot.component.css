@@ -1,0 +1,12 @@
+.slot-save-btn {
+  color: #fff;
+  background-color: #336ee0;
+}
+::ng-deep .matsnackbar-error {
+  background-color: rgb(241, 157, 31) !important;
+  color: #fff !important;
+}
+::ng-deep .matsnackbar-success {
+  background-color: rgb(24, 206, 64) !important;
+  color: #fff !important;
+}
